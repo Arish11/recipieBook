@@ -10,6 +10,7 @@ import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.compo
 import { RecipeDetailComponent } from './recipe-list/recipe-detail/recipe-detail.component';
 import { ShopListEditComponent } from './shopping-list/shop-list-edit/shop-list-edit.component';
 import { Header } from './header/header.component';
+import { BasicHighlightDirective } from './shared/basicHighlight.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { Header } from './header/header.component';
     RecipeItemComponent,
     RecipeDetailComponent,
     ShopListEditComponent,
+    BasicHighlightDirective,
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,12 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li ><a href="#">Recipes <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Shopping List</a></li>
+          <li >
+            <a href="#"  (click)="onRecipeClicked('Recipes')">Recipes</a>
+          </li>
+          <li>
+            <a href="#"  (click)="onShoppingClicked()">Shopping List</a>
+          </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -24,17 +28,22 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <div class="col-lg-4">
-    <app-recipe-list></app-recipe-list>
+  <div class="col-lg-12"*ngIf="recipeFlag">
+    <div class="col-lg-4">
+      <app-recipe-list></app-recipe-list>
+    </div>
+    <div class="col-lg-8">
+      <app-recipe-detail></app-recipe-detail>
+    </div>
   </div>
-  <div class="col-lg-8">
-    <app-recipe-detail></app-recipe-detail>
-  </div>
-  <div class="col-lg-12">
-    <app-shop-list-edit></app-shop-list-edit>
-  </div>
-  <hr class="col-lg-9">
-  <div class="col-lg-12">
+   
+  
+  
+  <div class="col-lg-12" *ngIf="recipeFlag==false">
+    <div class="col-lg-12">
+      <app-shop-list-edit></app-shop-list-edit>
+    </div>
+    <hr class="col-lg-9">
     <app-shopping-list></app-shopping-list>
   </div>
   

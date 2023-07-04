@@ -1,1 +1,11 @@
-<p>recipe-item works!</p>
+<div class="col-lg-12" *ngFor="let rec of recipes">
+    <a href="#" class="list-group-item clearfix">
+        <div class="pull-left">
+            <h4 class="list-group-item-heading">{{rec.name}}</h4>
+            <p class="list-group-item-text">{{rec.description}}</p>
+        </div>
+        <span class="pull-right">
+            <img alt="{{rec.name}}" [src]="rec.imagePath" class="img-responsive" style="max-height: 50px;">
+        </span>
+    </a>
+</div>

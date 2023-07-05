@@ -12,8 +12,8 @@ export class RecipeListComponent implements OnInit {
 
   recipes : Recipe[] = []
 
-  recipeToShow!: Recipe;
-  flag = false
+  //recipeToShow!: Recipe;
+  //flag = false
   
   constructor(private _recServ:RecipeService) { }
 
@@ -21,9 +21,8 @@ export class RecipeListComponent implements OnInit {
     this.recipes= this._recServ.getRecipe()
   }
 
-  onRecDetails(recDetail: any){
-    console.log(recDetail);
-    this.recipeToShow = recDetail
-    this.flag =true
-  }
+  // onRecDetails(recDetail: any){
+  //  // this.recipeToShow = recDetail
+  //   this.flag =true
+  // }
 }

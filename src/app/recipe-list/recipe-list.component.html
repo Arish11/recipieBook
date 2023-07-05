@@ -5,8 +5,8 @@
         </div>
     </div>
     <hr>
-    <app-recipe-item  *ngFor="let rec of recipes" [rec]="rec" (recipeSelected)="onRecDetails(rec)"></app-recipe-item>
+    <app-recipe-item  *ngFor="let rec of recipes" [rec]="rec" ></app-recipe-item>
 </div>
-<div class="col-lg-8" *ngIf="flag">
-    <app-recipe-detail [recDetails]="recipeToShow"></app-recipe-detail>
+<div class="col-lg-8">
+    <app-recipe-detail></app-recipe-detail>
 </div>

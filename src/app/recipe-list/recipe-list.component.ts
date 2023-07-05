@@ -12,6 +12,7 @@ export class RecipeListComponent implements OnInit {
   new Recipe("Chole","Punjabi","https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg"),
   new Recipe("Soda","Mitha","https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg")]
   recipeToShow!: Recipe;
+  flag = false
   
   constructor() { }
 
@@ -21,5 +22,6 @@ export class RecipeListComponent implements OnInit {
   onRecDetails(recDetail: any){
     console.log(recDetail);
     this.recipeToShow = recDetail
+    this.flag =true
   }
 }

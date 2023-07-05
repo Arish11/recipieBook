@@ -12,6 +12,7 @@ import { ShopListEditComponent } from './shopping-list/shop-list-edit/shop-list-
 import { Header } from './header/header.component';
 import { BasicHighlightDirective } from './shared/basicHighlight.directive';
 import { BetterColorDirective } from './shared/better-color.directive';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BetterColorDirective } from './shared/better-color.directive';
     ShopListEditComponent,
     BasicHighlightDirective,
     BetterColorDirective,
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,

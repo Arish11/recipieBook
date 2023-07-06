@@ -13,6 +13,7 @@ import { Header } from './header/header.component';
 import { BasicHighlightDirective } from './shared/basicHighlight.directive';
 import { BetterColorDirective } from './shared/better-color.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { ShoppingListService } from './shopping-list/shoppingList.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

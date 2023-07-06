@@ -34,12 +34,17 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            Description
+           <h2>{{recDetails.description}}</h2> 
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            Ingridents
+         <ul class="list-group">
+            <h4>Ingridients:</h4>
+            <li class="list-group-item" *ngFor="let rec of recDetails.ingridient"> 
+                {{rec.name}}-{{rec.amount}}
+            </li>
+         </ul>
         </div>
     </div>
 </div>

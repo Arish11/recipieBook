@@ -1,7 +1,8 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { Recipe } from "./recipe.model";
 import { Ingridient } from "../shared/ingridient.model";
-
+import { ShoppingListService } from "../shopping-list/shoppingList.service";
+@Injectable()
 export class RecipeService{
   recipeSelected = new EventEmitter<Recipe>()  
   flag:boolean=false
@@ -14,6 +15,8 @@ export class RecipeService{
   new Recipe("Soda","Quench your thirst","https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg",
   [new Ingridient('Soda',3), new Ingridient('sugar',5)])]
 
+  constructor(private slServ:ShoppingListService){}
+
   getRecipe(){
     return this.recipes.slice()
   }
@@ -22,5 +25,9 @@ export class RecipeService{
     this.recipeSelected.emit(recipe)
     this.flag = true
     console.log(this.flag)
+  }
+
+  addToShoppingList(ing:Ingridient[]){
+    this.slServ.addedFromRec(ing)
   }
 }

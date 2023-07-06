@@ -20,4 +20,8 @@ export class RecipeDetailComponent implements OnInit {
       }
     )
   }
+
+  onToShoppingList(){
+    this.recServ.addToShoppingList(this.recDetails.ingridient)
+  }
 }

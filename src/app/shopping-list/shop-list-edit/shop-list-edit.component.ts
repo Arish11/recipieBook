@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Ingridient } from 'src/app/shared/ingridient.model';
+import { ShoppingListService } from '../shoppingList.service';
 
 @Component({
   selector: 'app-shop-list-edit',
@@ -8,19 +9,17 @@ import { Ingridient } from 'src/app/shared/ingridient.model';
 })
 export class ShopListEditComponent implements OnInit {
 
-  @Output() ingAdded = new EventEmitter<Ingridient>();
-
+  
   
 
-  constructor() { }
+  constructor(private _shopSrv:ShoppingListService) { }
 
   ngOnInit(): void {
   }
   
   onIngAdded(name: any,amount: any){
     const newIng = new Ingridient(name.value,amount.value)
-    this.ingAdded.emit(newIng)
-    console.log(newIng)
+    this._shopSrv.addIngridient(newIng)
   }
 
 }

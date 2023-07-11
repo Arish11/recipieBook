@@ -12,9 +12,10 @@ export class RecipeItemComponent implements OnInit {
   constructor(private _recServ:RecipeService) { }
   // @Output() recipeSelected = new EventEmitter<void>()
   ngOnInit(): void {
+    
   }
-  onRecipeSelect(){
-    //this.recipeSelected.emit()
-    this._recServ.selectRecipe(this.rec)
-  }
+  // onRecipeSelect(){
+  //   //this.recipeSelected.emit()
+  //   this._recServ.selectRecipe(this.rec)
+  // }
 }

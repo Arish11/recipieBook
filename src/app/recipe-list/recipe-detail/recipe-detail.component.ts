@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -9,19 +10,28 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
   recDetails!: Recipe;
-  flag:boolean=false
-  constructor(private recServ:RecipeService) { }
+  recId!: number;
+  constructor(private recServ:RecipeService,
+              private route : ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.recServ.recipeSelected.subscribe(
-      (rec:Recipe) =>{
-        this.recDetails = rec
-        this.flag = this.recServ.flag
-      }
+    // this.recServ.recipeSelected.subscribe(
+    //   (rec:Recipe) =>{
+    //     this.recDetails = rec
+    //   }
+    // )
+
+    this.route.params.subscribe(
+      (params) => {
+        this.recId = +params['id'] 
+        this.recDetails = this.recServ.getRecipeById(this.recId)    
+      } 
     )
+   
+
   }
 
-  onToShoppingList(){
+  onToShoppingList(): void{
     this.recServ.addToShoppingList(this.recDetails.ingridient)
   }
 }

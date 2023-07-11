@@ -11,7 +11,7 @@
             <img alt="{{recDetails.name}}" [src]="recDetails.imagePath" class="img-responsive" style="max-height: 150px;">
         </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="recDetails">
         <div class="col-lg-12">
             <div class="btn-group" appDropdown>
                 <button class="btn btn-primary dropdown-toggle">
@@ -37,7 +37,7 @@
            <h2>{{recDetails.description}}</h2> 
         </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="recDetails">
         <div class="col-lg-12">
          <ul class="list-group">
             <h4>Ingridients:</h4>

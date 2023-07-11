@@ -14,6 +14,7 @@ import { BasicHighlightDirective } from './shared/basicHighlight.directive';
 import { BetterColorDirective } from './shared/better-color.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shoppingList.service';
+import { RecipeDefaultComponent } from './recipe-list/recipe-default/recipe-default.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ShoppingListService } from './shopping-list/shoppingList.service';
     BasicHighlightDirective,
     BetterColorDirective,
     DropdownDirective,
+    RecipeDefaultComponent,
   ],
   imports: [
     BrowserModule,

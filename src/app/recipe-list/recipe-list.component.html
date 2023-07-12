@@ -1,12 +1,13 @@
 <div class="col-lg-4">
     <div class="row">
         <div class="div col-lg-12" basicHighlight appBetterColor>
-            <div class="btn btn-success" appBetterColor>New Recipe</div>
+            <div class="btn btn-success" appBetterColor routerLink="new">New Recipe</div>
         </div>
     </div>
     <hr>
     <app-recipe-item  *ngFor="let rec of recipes" [rec]="rec" ></app-recipe-item>
 </div>
 <div class="col-lg-8">
-    <app-recipe-detail></app-recipe-detail>
+    <!-- <app-recipe-detail></app-recipe-detail> -->
+    <router-outlet></router-outlet>
 </div>

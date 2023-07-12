@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Ingridient } from '../shared/ingridient.model';
 import { ShoppingListService } from './shoppingList.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css'],
 })
-export class ShoppingListComponent implements OnInit {
+export class ShoppingListComponent implements OnInit, OnDestroy {
+
+  newIngSubject!: Subscription;
 
   ingridient:Ingridient[] = []
 
@@ -15,10 +18,14 @@ export class ShoppingListComponent implements OnInit {
 
   ngOnInit(): void {
     this.ingridient = this._shopList.getIngridient()
-    this._shopList.newIng.subscribe(
+    this.newIngSubject = this._shopList.newIng.subscribe(
       (ing:Ingridient[]) => {
         this.ingridient=ing
       }
     )
+  }
+
+  ngOnDestroy(): void {
+    this.newIngSubject.unsubscribe()
   }
 }

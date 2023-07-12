@@ -1,8 +1,9 @@
 import { EventEmitter } from "@angular/core";
 import { Ingridient } from "../shared/ingridient.model";
+import { Subject } from "rxjs";
 
 export class ShoppingListService {
-    newIng = new EventEmitter<Ingridient[]>()
+    newIng = new Subject<Ingridient[]>()
     private ingridient:Ingridient[] = [
     new Ingridient("Apple",10),
     new Ingridient("grapes",10),
@@ -14,7 +15,7 @@ export class ShoppingListService {
 
     addIngridient(ing:Ingridient){ 
         this.ingridient.push(ing)  
-        this.newIng.emit(this.ingridient.slice())
+        this.newIng.next(this.ingridient.slice())
     }
 
     addedFromRec(ing:Ingridient[]){
@@ -26,7 +27,7 @@ export class ShoppingListService {
       recepie is added which is fine but we receive an array of recipe from recDetails and if there are 10 ingridients so it is not 
       wise to emmit 10 events for a single operation hence we use spread operator which can take multiple arguments and emmit them as a list*/
       this.ingridient.push(...ing)
-      this.newIng.emit(this.ingridient.slice())
+      this.newIng.next(this.ingridient.slice())
     }
   
       //We can remove the slice function which will then send the direct reference of ingridient variable to shopping list component
